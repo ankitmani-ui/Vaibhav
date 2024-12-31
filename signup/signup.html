@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="signup.css">
+    <title>Sign In / Sign Up</title>
+</head>
+<body>
+    <div class="upper"></div>
+    <div class="login-div">
+        <form class="login" id="authForm">
+            <h1 id="formTitle">Sign Up</h1>
+            <div class="input-text">
+                <input type="text" id="inputEmail" name="email" placeholder="Email or phone number" required />
+                <div class="warning-input" id="warningEmail">Please enter a valid email or phone number.</div>
+            </div>
+            <div class="input-text">
+                <input type="password" id="inputPassword" name="password" placeholder="Password" required />
+                <div class="warning-input" id="warningPassword">Your password must contain between 4 and 60 characters.</div>
+            </div>
+            <div class="input-text" id="reEnterPasswordDiv" style="display: none;">
+                <input type="password" id="inputReEnterPassword" name="ReEnterPassword" placeholder="Re Enter Password" />
+                <div class="warning-input" id="warningReEnterPassword">Passwords do not match.</div>
+            </div>
+            <div>
+                <button type="submit" class="signin-button">Sign Up</button>
+            </div>
+            <div class="remember-flex">
+                <div class="help">
+                    <a class="color_text" href="#" id="toggleForm">Need help?</a>
+                </div>
+            </div>
+            <div class="new-members">
+                Already have an account? <a href="#" class="signup-link" id="toggleFormLink">Login now</a>.
+            </div>
+        </form>
+    </div>
+    <script src="signup.js"></script>
+</body>
+</html>

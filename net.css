@@ -1,0 +1,326 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+/* Navbar Container */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Styling */
+.logo img {
+    width: 120px; /* Adjust width of the logo */
+}
+
+/* Navigation Button Styles */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons .btn {
+    background: none;
+    color: white;
+    border: 2px solid transparent;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+}
+
+/* Hover Effect for Buttons */
+.nav-buttons .btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+}
+
+/* Special Sign In and Sign Up Button */
+.sign-in-btn {
+    background-color: #e50914;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: 2px solid #e50914;
+    
+}
+
+.sign-in-btn:hover {
+    background-color: #f40612;
+    border-color: #f40612;
+}
+
+.sign-up-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid #e50914;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.sign-up-btn:hover {
+    background-color: #e50914;
+    color: white;
+    border-color: #e50914;
+}
+
+
+/* Hero Section Styling */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Blur effect for the background image */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("Image/bigwin.jpg"); /* Ensure this image exists */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -1; 
+}
+
+/* Hero Content Styling */
+.hero-content {
+    position: absolute;
+    bottom: 5%; /* Vertically center the content */
+    left: 3%;
+    right: 3%;
+ 
+    text-align: center;
+    z-index: 1;
+    color: white;
+}
+
+/* Hero Section Text (h1, p) Styling */
+.hero h1 {
+    background-color: transparent;
+    color: white;
+    /* padding: 16px 15px;
+    margin:  0px  0px  15px 15px; */
+    font-size: 3rem;
+    border-radius: 30px;
+    font-weight: bold;
+
+}
+
+/* Apply same hover effect to h1 and p */
+.hero h1:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Background color change on hover */
+    border-radius: 30px;
+    color: white;
+    border: 2px solid #e50914;
+}
+
+
+/* Hero Section Text (h1, p) Styling */
+.hero p {
+    background-color: transparent;
+    color: white;
+    padding: 15px;
+    margin:  15px;
+    font-size: 2rem;
+    border-radius: 30px;
+    font-weight: bold;
+
+}
+
+/* Apply same hover effect to h1 and p */
+.hero p:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Background color change on hover */
+    border-radius: 30px;
+    color: white;
+    border: 2px solid #e50914;
+}
+
+
+/* Button Styling in Hero Section */
+.hero button {
+    background-color: transparent;
+    color: white;
+    font-size: 1.5rem;
+    border: 2px solid #e50914;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+}
+
+/* Hover Effect for Hero Section Button */
+.hero button:hover {
+    background-color: #e50914; /* Red background on hover */
+    color: white;
+    border-color: #e50914; /* Red border on hover */
+}
+
+
+/* Testimonial Section */
+.testimonials {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 20px;
+    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.testimonial-name {
+    font-weight: bold;
+    color: #e50914;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #141414;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-telegram .social-icon img {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.footer-telegram .social-icon img:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.connect-with-us {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.footer-newsletter {
+    text-align: center;
+}
+
+.footer-newsletter p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter-input {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+}
+
+.newsletter-btn {
+    padding: 10px 20px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter-btn:hover {
+    background-color: #f40612;
+}
+
+.footer-bottom {
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Animation for fading in elements */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
