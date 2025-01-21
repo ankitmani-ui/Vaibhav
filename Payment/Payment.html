@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Payment.css">
+    <title>Payment</title>
+    <style>
+        /* You can add these styles in your Payment.css or inline */
+        .countdown {
+            color: red; /* Red color for countdown timer */
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="upper">
+        <!-- The form will be here initially -->
+        <div class="login-div">
+            <form class="login" id="authForm">
+                <h1 id="formTitle">Payment</h1>
+
+                <div class="input-text">
+                    <input type="text" id="inputusername" name="username" placeholder="Enter your name" required />
+                </div>
+
+                <div class="input-text">
+                    <input type="text" id="inputphomenumber" name="userphonenumber" placeholder="Enter your Phone number" required />
+                </div>
+
+                <div class="input-text">
+                    <input type="text" id="inputamount" name="amount" placeholder="Amount" required />
+                    <div class="warning-input" id="warningEmail" style="display:none;">Please enter at least 250 rupees</div> 
+                </div>
+
+                <div>
+                    <button type="submit" class="signin-button">Make Payment</button>
+                </div>
+                <div class="remember-flex">
+                    <div class="help">
+                        <a class="color_text" href="#" id="toggleForm">Need help?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Div to display the welcome message using the same login style -->
+        <div id="welcomeMessage" class="login-div" style="display:none;">
+            <form class="login">
+                <h1 id="welcomeTitle"></h1> <!-- The username will be added here dynamically -->
+
+                <div class="input-text">
+                    <div id="welcomeText"></div> <!-- Use div instead of input -->
+                </div>
+                <div class="input-text">
+                    <div id="countdownTimer"></div> <!-- Use div instead of input -->
+                </div>
+                <!-- Countdown in red color -->
+                <div id="countdownDisplay" class="countdown"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("authForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+            
+            // Get the values entered by the user
+            const username = document.getElementById("inputusername").value;
+            const phoneNumber = document.getElementById("inputphomenumber").value;
+            const amount = parseFloat(document.getElementById("inputamount").value);
+            
+            // Get the warning div and hide it initially
+            const warningEmail = document.getElementById("warningEmail");
+            warningEmail.style.display = "none";
+            
+            // Get the welcome message and countdown div
+            const welcomeMessage = document.getElementById("welcomeMessage");
+            const welcomeText = document.getElementById("welcomeText");
+            const countdownTimer = document.getElementById("countdownTimer");
+            const welcomeTitle = document.getElementById("welcomeTitle"); // The h1 element to display the username
+            const countdownDisplay = document.getElementById("countdownDisplay"); // The div to display the countdown in red
+            
+            // Check if the amount is less than 250
+            if (amount < 250) {
+                // Display the error message
+                warningEmail.textContent = "Please enter at least 250 rupees";
+                warningEmail.style.display = "block";
+            } else {
+                // Set the welcome message with the username in the h1 tag
+                welcomeTitle.innerHTML = `Welcome, ${username}!`;  // Display the username in the h1 tag
+                
+                // Calculate the 3x reward and update the welcomeText
+                const reward = 3 * amount;
+                welcomeText.innerHTML = `Dear ${username},
+
+Prepare yourself for an incredible reward! After just 15 days of investing, you will receive **${reward} rupees**. Your decision to invest wisely is about to pay off in a big way. Stay confident and patient—your reward is on the horizon, and your journey is destined for greatness!
+
+Trust in the process, your fortune is about to grow!
+
+You will receive this reward via a recharge plan sent to your mobile number **${phoneNumber}**!`;
+                
+                // Show the welcome message div and hide the form
+                welcomeMessage.style.display = "block";
+                document.querySelector(".login").style.display = "none";
+                
+                // Start the countdown timer
+                startCountdown(15, countdownTimer, phoneNumber, countdownDisplay); // Start a 15-day countdown
+            }
+        });
+
+ // Function to start the countdown timer from 15 days
+function startCountdown(days, countdownTimer, phoneNumber, countdownDisplay) {
+    const endDate = new Date();
+    endDate.setDate(endDate.getDate() + days);
+
+    const countdownInterval = setInterval(function() {
+        const now = new Date();
+        const timeLeft = endDate - now;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            countdownDisplay.innerHTML = `Your 15-day countdown has ended! Your reward has been sent to your mobile number ${phoneNumber}.`;
+        } else {
+            const daysLeft = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            countdownDisplay.innerHTML = `Countdown: ${daysLeft} days remaining. The reward will be sent to your mobile number ${phoneNumber}.`;
+        }
+    }, 86400000); // Update every 1 day (86400000 ms)
+}
+
+    </script>
+</body>
+</html>
