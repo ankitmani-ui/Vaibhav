@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (storedPassword && storedPassword === password) {
                 // alert('Sign In successful for ' + email);
                 // Redirect to /payment/payment.html after successful login
-                window.location.href = '/payment/payment.html';
+                window.location.href = '../payment/payment.html';
             } else {
                 alert('Invalid email or password. Please try again.');
             }
